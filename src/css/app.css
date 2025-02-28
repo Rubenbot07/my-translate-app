@@ -4,3 +4,9 @@ output {
   width: 500px;
   border: 1px solid black;
 }/*# sourceMappingURL=app.css.map */
+
+.swap-lang__button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}

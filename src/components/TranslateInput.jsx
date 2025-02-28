@@ -6,17 +6,17 @@ export const TranslateInput = () => {
     const {
         text,
         setText,
-        setFrom,
         from,
         to,
         setTranslatedText,
+        handleLanguageChange,
     } = useContext(TranslationContext)
 
     const handleTranslate = async () => {
         try {
             const translation = await getTranslate(text, from, to);
             setTranslatedText(translation);
-            console.log("Translated text: ", translation);
+            console.log(from, to);
         } catch (error) {
             console.error("Error fetching translation:", error);
         }
@@ -26,9 +26,11 @@ export const TranslateInput = () => {
     return (
         <section>
             <header>
-                <button onClick={() => setFrom("es")}>Spanish</button>
-                <button onClick={() => setFrom("en")}>English</button>
-                <button onClick={() => setFrom("fr")}>French</button>
+                <div className="language-container">    
+                    <button onClick={() => handleLanguageChange("es", "from")}>Spanish</button>
+                    <button onClick={() => handleLanguageChange("en", "from")}>English</button>
+                    <button onClick={() => handleLanguageChange("fr", "from")}>French</button>
+                </div>
             </header>
             <input type="text" onChange={(e) => setText(e.target.value)}/>
             <button onClick={() => handleTranslate()}>Translate</button>
