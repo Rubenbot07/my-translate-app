@@ -1,10 +1,11 @@
 import  { useState } from 'react'
 import { TranslationContext } from './TranslationContext'
 export function TranslationProvider({ children }) {
-    const [text, setText] = useState(null)
+    const [text, setText] = useState('')
     const [from, setFrom] = useState("en")
     const [to, setTo] = useState("es")
-    const [translatedText, setTranslatedText] = useState(null)
+    const [translatedText, setTranslatedText] = useState('')
+    const [inputLength, setInputLength] = useState(0)
 
     const handleLanguageChange = (lang, type) => {
         const languages = ['en', 'es', 'fr'];
@@ -22,9 +23,23 @@ export function TranslationProvider({ children }) {
 
     const swapLanguages = () => {
         const temp = from;
+        const currentText = text
         setFrom(to);
         setTo(temp);
+        setText(translatedText || text);
+        setTranslatedText(currentText);
     };
+
+    const copyText = (type) => {
+        const textToCopy = type === 'input' ? text : translatedText;
+        navigator.clipboard.writeText(textToCopy);
+    }
+
+    const listenText = (type) => {
+        const textToListen = type === 'input' ? text : translatedText;
+        const utterance = new SpeechSynthesisUtterance(textToListen);
+        speechSynthesis.speak(utterance);
+    }
 
     return (
         <TranslationContext.Provider value={
@@ -38,7 +53,11 @@ export function TranslationProvider({ children }) {
                 to,
                 setTo,
                 handleLanguageChange,
-                swapLanguages
+                swapLanguages,
+                copyText,
+                listenText,
+                inputLength,
+                setInputLength
             }
         }>
             {children}
