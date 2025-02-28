@@ -32,13 +32,14 @@ export const TranslateInput = () => {
     }
 
     return (
-        <section>
-            <header>
+        <section className="translate-container">
+            <header className="translate-input__header component-header">
                 <div className="language-container">    
-                <button
+                    <button
                         onClick={() => handleLanguageChange("es", "from")}
                         aria-label="Change source language to Spanish"
                         aria-pressed={from === "es"}
+                        className={`header-button ${from === "es" ? "lang-active" : ""}`}
                     >
                         Spanish
                     </button>
@@ -46,6 +47,8 @@ export const TranslateInput = () => {
                         onClick={() => handleLanguageChange("en", "from")}
                         aria-label="Change source language to English"
                         aria-pressed={from === "en"}
+                        value={from}
+                        className={`header-button ${from === "en" ? "lang-active" : ""}`}
                     >
                         English
                     </button>
@@ -53,6 +56,8 @@ export const TranslateInput = () => {
                         onClick={() => handleLanguageChange("fr", "from")}
                         aria-label="Change source language to French"
                         aria-pressed={from === "fr"}
+                        value={from}
+                        className={`header-button ${from === "fr" ? "lang-active" : ""}`}
                     >
                         French
                     </button>
@@ -60,7 +65,8 @@ export const TranslateInput = () => {
             </header>
             <form onSubmit={handleTranslate}>
                 <span  id="instructions" tabIndex="0" className="sr-only">must have at least 1 character </span>
-                <input
+                <textarea
+                    className="translate__input"
                     maxLength="500"
                     aria-describedby="instructions"
                     type="text"
@@ -69,12 +75,14 @@ export const TranslateInput = () => {
                 />
                 <span className="input-length">{inputLength}/500</span>
                 <footer className="translate-input__footer">
-                    <button className="copy__button" type="button" onClick={() => copyText('input')} aria-label="Copy text">
-                        <img src="/src/assets/Copy.svg" alt="" />
-                    </button>
-                    <button className="listen__button" type="button" aria-label="Listen to text" onClick={() => listenText('input')}>
-                        <img src="/src/assets/sound_max_fill.svg" alt="" />
-                    </button>
+                    <div className="footer__right">
+                        <button className="copy__button" type="button" onClick={() => copyText('input')} aria-label="Copy text">
+                            <img src="/src/assets/Copy.svg" alt="" />
+                        </button>
+                        <button className="listen__button" type="button" aria-label="Listen to text" onClick={() => listenText('input')}>
+                            <img src="/src/assets/sound_max_fill.svg" alt="" />
+                        </button>
+                    </div>
                     <button disabled={!text} className="translate__button" type="submit" aria-label="Translate text">
                         <img src="/src/assets/Sort_alfa.svg" alt="" />
                         Translate

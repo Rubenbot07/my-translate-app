@@ -10,13 +10,15 @@ export const TranslateOutput = () => {
     } = useContext(TranslationContext)
 
     return (
-        <section>
-            <header>
+        <section className="translate-container">
+            <header className="translate-output__header component-header">
                 <div className="language-container">
                 <button
                         onClick={() => handleLanguageChange('en', 'to')}
                         aria-label="Change target language to English"
                         aria-pressed={to === 'en'}
+                        className={`header-button ${to === "en" ? "lang-active" : ""}`}
+                        
                     >
                         English
                     </button>
@@ -24,6 +26,8 @@ export const TranslateOutput = () => {
                         onClick={() => handleLanguageChange('fr', 'to')}
                         aria-label="Change target language to French"
                         aria-pressed={to === 'fr'}
+                        className={`header-button ${to === "fr" ? "lang-active" : ""}`}
+                        
                     >
                         French
                     </button>
@@ -31,6 +35,8 @@ export const TranslateOutput = () => {
                         onClick={() => handleLanguageChange('es', 'to')}
                         aria-label="Change target language to Spanish"
                         aria-pressed={to === 'es'}
+                        className={`header-button ${to === "es" ? "lang-active" : ""}`}
+                        
                     >
                         Spanish
                     </button>
@@ -46,7 +52,7 @@ export const TranslateOutput = () => {
                 </div>
             </header>
             <output aria-live="polite" value={translatedText} >{translatedText}</output>
-            <footer className="translate-input__footer">
+            <footer className="translate-output__footer">
                 <button className="copy__button" aria-label="Copy translated text">
                     <img src="/src/assets/Copy.svg" alt="" />
                 </button>

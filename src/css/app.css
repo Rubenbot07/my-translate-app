@@ -1,14 +1,124 @@
-output {
-  display: flex;
-  padding: 8px;
-  width: 500px;
-  border: 1px solid black;
-}/*# sourceMappingURL=app.css.map */
+body {
+  padding-block-start: 4rem;
+  background-color: #040711;
+  background-image: url("https://i.postimg.cc/FsqVrJpw/hero-img.png");
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-.swap-lang__button img {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+main {
+  display: grid;
+  margin: 0 auto;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1rem;
+  padding-block-start: 3rem;
+  padding-block-end: 3rem;
+  height: auto;
+  width: 95%;
+  max-width: 1500px;
+}
+main .component-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #394150;
+}
+main .translate-container:nth-child(2) {
+  background-color: rgba(18, 24, 38, 0.938);
+}
+main .translate-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(33, 41, 54, 0.7);
+  border-radius: 14px;
+  border: 1px solid #394150;
+  padding: 8px;
+  height: 400px;
+  width: auto;
+  color: #F9FAFB;
+}
+main .translate-container button {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 8px;
+  color: #F9FAFB;
+  border: 2px solid #394150;
+}
+main .translate-container button img {
+  width: 16px;
+  height: 16px;
+}
+main .translate-container .translate__button {
+  background-color: #263FA9;
+  border: 1px solid #7CA9F3;
+}
+main .translate-container form {
+  height: 65%;
+  padding-block: 10px;
+  padding-inline: 8px;
+}
+main .translate-container .translate__input {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  color: #F9FAFB;
+  outline: none;
+  resize: none;
+}
+main .translate-container .lang-active {
+  background-color: #4D5562;
+}
+main .input-length {
+  display: inline-block;
+  width: 100%;
+  text-align: end;
+  font-size: 0.8rem;
+  padding-block: 8px;
+}
+main .translate-input__footer {
+  display: flex;
+  justify-content: space-between;
+}
+main .translate-input__footer .footer__right {
+  display: flex;
+  gap: 8px;
+}
+main .translate-output__footer {
+  display: flex;
+  gap: 8px;
+}
+
+.language-container {
+  display: flex;
+  gap: 8px;
+}
+.language-container .header-button {
+  border: none;
+}
+
+output {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  color: #F9FAFB;
+  outline: none;
+  resize: none;
+  padding: 8px;
 }
 
 .sr-only {
@@ -19,6 +129,6 @@ output {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  white-space: nowrap;
   border: 0;
-}
+}/*# sourceMappingURL=app.css.map */

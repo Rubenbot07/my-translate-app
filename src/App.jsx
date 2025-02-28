@@ -6,9 +6,13 @@ function App() {
 
   return (
     <TranslationProvider>
-      <h1>Translate App</h1>
-      <TranslateInput />
-      <TranslateOutput />
+        <div className='logo'>
+          <img src='/src/assets/logo.svg' alt='logo' />
+        </div>
+      <main>
+        <TranslateInput />
+        <TranslateOutput />
+      </main>
     </TranslationProvider>
   )
 }
