@@ -1,6 +1,9 @@
 import { useContext } from "react"
 import { TranslationContext } from "../context/TranslationContext"
 import { getTranslate } from "../utils/api"
+import copyIcon from "../assets/Copy.svg"
+import listenIcon from "../assets/sound_max_fill.svg"
+import translateIcon from "../assets/Sort_alfa.svg"
 
 export const TranslateInput = () => {
     const {
@@ -77,14 +80,14 @@ export const TranslateInput = () => {
                 <footer className="translate-input__footer">
                     <div className="footer__right">
                         <button className="copy__button" type="button" onClick={() => copyText('input')} aria-label="Copy text">
-                            <img src="/src/assets/Copy.svg" alt="" />
+                            <img src={copyIcon} alt="" />
                         </button>
                         <button className="listen__button" type="button" aria-label="Listen to text" onClick={() => listenText('input')}>
-                            <img src="/src/assets/sound_max_fill.svg" alt="" />
+                            <img src={listenIcon} alt="" />
                         </button>
                     </div>
                     <button disabled={!text} className="translate__button" type="submit" aria-label="Translate text">
-                        <img src="/src/assets/Sort_alfa.svg" alt="" />
+                        <img src={translateIcon} alt="" />
                         Translate
                     </button>
                 </footer>

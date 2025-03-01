@@ -1,5 +1,7 @@
 import { useContext } from "react"
 import { TranslationContext } from "../context/TranslationContext"
+import copyIcon from "../assets/Copy.svg"
+import listenIcon from "../assets/sound_max_fill.svg"
 export const TranslateOutput = () => {
     const {
         translatedText,
@@ -54,10 +56,10 @@ export const TranslateOutput = () => {
             <output aria-live="polite" value={translatedText} >{translatedText}</output>
             <footer className="translate-output__footer">
                 <button className="copy__button" aria-label="Copy translated text">
-                    <img src="/src/assets/Copy.svg" alt="" />
+                    <img src={copyIcon} alt="" />
                 </button>
                 <button className="listen__button" aria-label="Listen to translated text" onClick={() => listenText('output')}>
-                    <img src="/src/assets/sound_max_fill.svg" alt=""/>
+                    <img src={listenIcon} alt=""/>
                 </button>
             </footer>
         </section>
