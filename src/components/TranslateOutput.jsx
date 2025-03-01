@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { TranslationContext } from "../context/TranslationContext"
 import copyIcon from "../assets/Copy.svg"
 import listenIcon from "../assets/sound_max_fill.svg"
+import swapIcon from "../assets/Horizontal_top_left_main.svg"
 export const TranslateOutput = () => {
     const {
         translatedText,
@@ -49,7 +50,7 @@ export const TranslateOutput = () => {
                         aria-label="swap languages"
                         onClick={() => swapLanguages()}
                     >
-                        <img src="/src/assets/Horizontal_top_left_main.svg" alt=""/>
+                        <img src={swapIcon} alt=""/>
                     </button>
                 </div>
             </header>
