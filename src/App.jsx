@@ -2,12 +2,13 @@ import './css/app.css'
 import { TranslationProvider } from './context/TranslationProvider'
 import { TranslateInput } from './components/TranslateInput'
 import { TranslateOutput } from './components/TranslateOutput'
+import logo from './assets/logo.svg'
 function App() {
 
   return (
     <TranslationProvider>
         <div className='logo'>
-          <img src='/src/assets/logo.svg' alt='logo' />
+          <img src={logo} alt='logo' />
         </div>
       <main>
         <TranslateInput />
