@@ -6,6 +6,7 @@ export function TranslationProvider({ children }) {
     const [to, setTo] = useState("es")
     const [translatedText, setTranslatedText] = useState('')
     const [inputLength, setInputLength] = useState(0)
+    const [toast, setToast] = useState(false)
 
     const handleLanguageChange = (lang, type) => {
         const languages = ['en', 'es', 'fr'];
@@ -33,12 +34,20 @@ export function TranslationProvider({ children }) {
     const copyText = (type) => {
         const textToCopy = type === 'input' ? text : translatedText;
         navigator.clipboard.writeText(textToCopy);
+        manageToast();
     }
 
     const listenText = (type) => {
         const textToListen = type === 'input' ? text : translatedText;
         const utterance = new SpeechSynthesisUtterance(textToListen);
         speechSynthesis.speak(utterance);
+    }
+
+    const manageToast = () => {
+        setToast(true)
+        setTimeout(() => {
+            setToast(false)
+        }, 2000)
     }
 
     return (
@@ -57,7 +66,8 @@ export function TranslationProvider({ children }) {
                 copyText,
                 listenText,
                 inputLength,
-                setInputLength
+                setInputLength,
+                toast
             }
         }>
             {children}

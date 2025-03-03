@@ -9,7 +9,8 @@ export const TranslateOutput = () => {
         handleLanguageChange,
         swapLanguages,
         to,
-        listenText
+        listenText,
+        copyText,
     } = useContext(TranslationContext)
 
     return (
@@ -56,7 +57,7 @@ export const TranslateOutput = () => {
             </header>
             <output aria-live="polite" value={translatedText} >{translatedText}</output>
             <footer className="translate-output__footer">
-                <button className="copy__button" aria-label="Copy translated text">
+                <button className="copy__button" aria-label="Copy translated text" onClick={() => copyText('output')}>
                     <img src={copyIcon} alt="" />
                 </button>
                 <button className="listen__button" aria-label="Listen to translated text" onClick={() => listenText('output')}>

@@ -138,3 +138,19 @@ output {
     white-space: nowrap; 
     border: 0;
 }
+.toast-container {
+    width: 200px;
+    background-color: #040711;
+    color: #F9FAFB;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.toast-progress {
+    height: 4px;
+    background-color: #263FA9;
+    border-radius: 8px;
+}
